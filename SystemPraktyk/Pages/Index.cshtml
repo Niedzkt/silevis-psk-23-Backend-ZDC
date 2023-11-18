@@ -8,3 +8,22 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<div class="text-center">
+    <select id="documentSelect" onchange="selectOfOption">
+        <option value="">Wybierz wniosek: </option>
+        <option value="document1">Wniosek o praktyki</option>
+        <option value="document2">Podanie o praktyki</option>
+    </select>
+</div>
+
+<script type="text/javascript">
+    function selectOfOption(){
+        var selectedDocument = document.getElementById("documentSelect").value;
+        if (selectedDocument == "document1") {
+            window.location.href = "/wniosek";
+        }
+        else if(selectedDocument == "document2"){
+            window.location.href = "/podanie";
+        }
+    }
+</script>

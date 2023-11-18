@@ -10,7 +10,11 @@ namespace SystemPraktyk
             {
                 document.ReplaceText("{firstName}", data.FirstName);
                 document.ReplaceText("{lastName}", data.LastName);
-                document.ReplaceText("{Id}", data.Id);
+              //  document.ReplaceText("{Id}", data.Id);
+                document.ReplaceText("{email}", data.Email);
+                document.ReplaceText("{studentNumber}", data.StudentNumber);
+                //document.ReplaceText("{StudentProgrammes:Id}");
+                //document.ReplaceText("{StudentProgrammes:Id}");
 
 
                 document.SaveAs(destinationDocxPath);

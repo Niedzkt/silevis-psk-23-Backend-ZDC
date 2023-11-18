@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Diagnostics;
 
 namespace SystemPraktyk.Pages
 {
@@ -29,13 +30,13 @@ namespace SystemPraktyk.Pages
 
                 jsonFileService.SaveObjectToFile(myObject, filePath);
 
-                Console.WriteLine("Plik JSON zosta³ zapisany.");
+                Debug.WriteLine("Plik JSON zosta³ zapisany.");
 
                 docxModifier.ModifyDocx("umowa.docx", "test2.docx", myObject);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Wyst¹pi³ b³¹d: " + ex.Message);
+                Debug.WriteLine("Wyst¹pi³ b³¹d: " + ex.Message);
             }
         }
     }
