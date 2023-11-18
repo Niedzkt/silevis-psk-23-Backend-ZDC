@@ -20,13 +20,20 @@ namespace SystemPraktyk.Pages
 
         public class FormData
         {
+            [BindProperty]
             public string CompanyAddress { get; set; }
+            [BindProperty]
             public string KrsNumber { get; set; }
+            [BindProperty]
             public string NipNumber { get; set; }
+            [BindProperty]
             public string CompanyCeo { get; set; }
+            [BindProperty]
             public string InternDateSelect { get; set; }
-            public string StartDateOfIntern { get; set; }
-            public string EndDateOfIntern { get; set; }
+            [BindProperty]
+            public string startDateOfIntern { get; set; }
+            [BindProperty]
+            public string endDateOfIntern { get; set; }
         }
     }
 }

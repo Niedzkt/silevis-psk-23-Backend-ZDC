@@ -4,6 +4,6 @@
   "NipNumber": null,
   "CompanyCeo": null,
   "InternDateSelect": null,
-  "StartDateOfIntern": null,
-  "EndDateOfIntern": null
+  "startDateOfIntern": null,
+  "endDateOfIntern": null
 }

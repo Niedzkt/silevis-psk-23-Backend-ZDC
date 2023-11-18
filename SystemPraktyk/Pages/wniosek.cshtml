@@ -6,21 +6,21 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <form method="post" asp-page-handler="Submit">
-        <label for="company_address">Nazwa firmy:</label>
+        <label for="CompanyAddress">Nazwa firmy:</label>
         <br />
-        <input type="text" id="company_address" name="company_address" />
+        <input type="text" id="CompanyAddress" name="CompanyAddress" />
         <br />
-        <label for="krs_number">Numer KRS:</label>
+        <label for="KrsNumber">Numer KRS:</label>
         <br />
-        <input type="text" id="krs_number" name="krs_number" />
+        <input type="text" id="KrsNumber" name="KrsNumber" />
         <br />
-        <label for="nip_number">Numer NIP:</label>
+        <label for="NipNumber">Numer NIP:</label>
         <br />
-        <input type="text" id="nip_number" name="nip_number" />
+        <input type="text" id="NipNumber" name="NipNumber" />
         <br />
-        <label for="company_ceo">CEO Firmy:</label>
+        <label for="CompanyCeo">CEO Firmy:</label>
         <br />
-        <input type="text" id="company_ceo" name="company_ceo" />
+        <input type="text" id="CompanyCeo" name="CompanyCeo" />
         <br />
         <br />
 
@@ -39,25 +39,26 @@
 </div>
 
 <script type="text/javascript">
+    var startDateOfIntern, endDateOfIntern;
     document.getElementById('internDateSelector').addEventListener('change', function () {
         var value = this.value;
-        var startDateOfIntern, endDateOfIntern;
-
         if (value === 'dateJuly') {
-            startDateOfIntern = 03.07.2023;
-            endDateOfIntern = 28.07.2023;
+            startDateOfIntern = '03.07.2023';
+            endDateOfIntern = '28.07.2023';
         } else if (value === 'dateAugust') {
-            startDateOfIntern = 03.08.2023;
-            endDateOfIntern = 28.08.2023;
+            startDateOfIntern = '03.08.2023';
+            endDateOfIntern = '28.08.2023';
         } else if (value == 'dateSeptember') {
-            startDateOfIntern = 03.09.2023;
-            endDateOfIntern = 28.09.2023;
+            startDateOfIntern = '03.09.2023';
+            endDateOfIntern = '28.09.2023';
         }else{
             alert("Musisz wybrać date praktyk");
+            startDateOfIntern = null;
+            endDateOfIntern = null;
+
         }
     });
 
-    <script type="text/javascript" >
         document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -67,8 +68,8 @@
                 nipNumber: document.getElementById('nip_number').value,
                 companyCeo: document.getElementById('company_ceo').value,
                 internDateSelect: document.getElementById('internDateSelect').value,
-                startDateOfIntern: startDateOfIntern, // Te zmienne muszą być zdefiniowane globalnie
-                endDateOfIntern: endDateOfIntern   // lub wewnątrz tej funkcji
+                startDateOfIntern: startDateOfIntern,
+                endDateOfIntern: endDateOfIntern
             };
 
             sendData(formData);
