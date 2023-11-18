@@ -5,25 +5,27 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<div class="text-center">
-    <select id="documentSelect" onchange="selectOfOption">
-        <option value="">Wybierz wniosek: </option>
-        <option value="document1">Wniosek o praktyki</option>
-        <option value="document2">Podanie o praktyki</option>
-    </select>
+    <h5 class="display-8">
+        Zasady i program odbywania praktyk studenckich <br />
+        na Wydziale Elektrotechniki, Automatyki i Informatyki <br />
+        Politechniki Świętokrzyskiej <br />
+        dla studiów o profilu akademickim<br />
+    </h5>
+    <p>Więcej na temat praktyk: <a href="/InfoPraktyki">Informacje na temat praktyk</a>.</p>
 </div>
 
-<script type="text/javascript">
-    function selectOfOption(){
-        var selectedDocument = document.getElementById("documentSelect").value;
-        if (selectedDocument == "document1") {
-            window.location.href = "/wniosek";
-        }
-        else if(selectedDocument == "document2"){
-            window.location.href = "/podanie";
-        }
-    }
+<div class="text-center">
+    <button id="buttonMojeWnioski" class="btn btn-primary">Moje wnioski</button> <br />
+    <br />
+    <button id="buttonZlozWniosek" class="custom-button">Złóż wniosek</button>
+</div>
+
+<script>
+    document.getElementById('buttonMojeWnioski').addEventListener('click', function () {
+        window.location.href = '/MojeWnioski';
+    });
+
+    document.getElementById('buttonZlozWniosek').addEventListener('click', function () {
+        window.location.href = '/ZlozWniosek';
+    });
 </script>

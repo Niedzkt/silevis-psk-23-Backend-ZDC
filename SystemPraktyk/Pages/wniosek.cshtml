@@ -3,4 +3,91 @@
 @{
 }
 
-<div>Wionsek </div>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form method="post" asp-page-handler="Submit">
+        <label for="company_address">Nazwa firmy:</label>
+        <br />
+        <input type="text" id="company_address" name="company_address" />
+        <br />
+        <label for="krs_number">Numer KRS:</label>
+        <br />
+        <input type="text" id="krs_number" name="krs_number" />
+        <br />
+        <label for="nip_number">Numer NIP:</label>
+        <br />
+        <input type="text" id="nip_number" name="nip_number" />
+        <br />
+        <label for="company_ceo">CEO Firmy:</label>
+        <br />
+        <input type="text" id="company_ceo" name="company_ceo" />
+        <br />
+        <br />
+
+        <select id="internDateSelect">
+            <option value="default">Wybierz date praktyk: </option>
+            <option value="dateJuly">Lipcowe</option>
+            <option value="dateAugust">Sierpniowe</option>
+            <option value="dateSeptember">Wrześniowe</option>
+        </select>
+        <br />
+        <br />
+
+        <button type="submit" class="btn btn-primary">Wyślij</button>
+    </form>
+
+</div>
+
+<script type="text/javascript">
+    document.getElementById('internDateSelector').addEventListener('change', function () {
+        var value = this.value;
+        var startDateOfIntern, endDateOfIntern;
+
+        if (value === 'dateJuly') {
+            startDateOfIntern = 03.07.2023;
+            endDateOfIntern = 28.07.2023;
+        } else if (value === 'dateAugust') {
+            startDateOfIntern = 03.08.2023;
+            endDateOfIntern = 28.08.2023;
+        } else if (value == 'dateSeptember') {
+            startDateOfIntern = 03.09.2023;
+            endDateOfIntern = 28.09.2023;
+        }else{
+            alert("Musisz wybrać date praktyk");
+        }
+    });
+
+    <script type="text/javascript" >
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var formData = {
+                companyAddress: document.getElementById('company_address').value,
+                krsNumber: document.getElementById('krs_number').value,
+                nipNumber: document.getElementById('nip_number').value,
+                companyCeo: document.getElementById('company_ceo').value,
+                internDateSelect: document.getElementById('internDateSelect').value,
+                startDateOfIntern: startDateOfIntern, // Te zmienne muszą być zdefiniowane globalnie
+                endDateOfIntern: endDateOfIntern   // lub wewnątrz tej funkcji
+            };
+
+            sendData(formData);
+        });
+
+    function sendData(data) {
+        fetch('/wniosek?handler=Submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Sukces:', data);
+            })
+            .catch((error) => {
+                console.error('Błąd:', error);
+            });
+    }
+</script>
