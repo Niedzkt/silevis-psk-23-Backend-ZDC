@@ -1,0 +1,15 @@
+{
+  "Id": "36293",
+  "FirstName": "Jakub",
+  "LastName": "Nowak",
+  "StaffStatus": 0,
+  "StudentStatus": 1,
+  "Email": "s022222@student.tu.kielce.pl",
+  "StudentNumber": "22222",
+  "StudentProgrammes": [
+    {
+      "Id": "1",
+      "Programme": "Informatyka"
+    }
+  ]
+}
